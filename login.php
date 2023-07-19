@@ -17,7 +17,7 @@ if (isset($_POST['login'])) {
         echo "<script>alert('ไม่พบผู้ใช้ $std_id')</script>";
     } else {
         $_SESSION['std_id'] = $row['std_id'];
-        header('location:std_profile.php');
+        header('location:index.php');
     }
 }
 ?>
