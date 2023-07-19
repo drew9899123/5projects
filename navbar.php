@@ -81,7 +81,7 @@ $row_user = mysqli_fetch_array($result_user);
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="std_profile.php">หน้าหลัก</a>
+                        <a class="nav-link" href="index.php">หน้าหลัก</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">ติดต่อ</a>
