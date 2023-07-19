@@ -1,0 +1,9 @@
+#bringToTopBtn {
+    /* Add your button styles here */
+    transform: translateX(100%);
+    transition: transform 1s ease-in-out;
+}
+
+#bringToTopBtn.show {
+    transform: translateX(0%);
+}

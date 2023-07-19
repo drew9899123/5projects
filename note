@@ -1,0 +1,79 @@
+<div class="row mt-5 d-flex flex-row align-items-center">
+                <div class="col-3">
+                    <b>เอกสารคำร้องขอออกฝึกงาน</b>
+                </div>
+                <div class="col-9">
+                    <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar bg-success" style="width: 25%">ยื่นคำร้อง</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- progress 2 -->
+            <div class="row mt-5 d-flex flex-row align-items-center">
+                <div class="col-3">
+                    <b>หนังสือออก และ หนังสือตอบรับ</b>
+                </div>
+                <div class="col-9">
+                    <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar bg-success" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- progress 3 -->
+            <div class="row mt-5 d-flex flex-row align-items-center">
+                <div class="col-3">
+                    <b>แผนที่สถานประกอบการ <br>และสัญญาค้ำประกัน</b>
+                </div>
+                <div class="col-9">
+                    <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar bg-success" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        ; template2
+         <div class="status-container-desktop">
+            <div class="title d-flex justify-content-between">
+                <b>เอกสารคำร้องขอออกฝึกงาน</b>
+                <b>หนังสือออก และ หนังสือตอบรับ</b>
+                <b>แผนที่สถานประกอบการและสัญญาค้ำประกัน</b>
+            </div>
+            <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar bg-success" style="width: 25%">ยื่นคำร้อง</div>
+            </div>
+        </div>
+
+
+        <div class="status-container-mobile">
+            <!-- progress1 -->
+            <div class="box mt-2 text-center">
+                <b>เอกสารคำร้องขอออกฝึกงาน</b>
+                <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar bg-success" style="width: 25%">ยื่นคำร้อง</div>
+                </div>
+            </div>
+            <!-- progress2 -->
+            <div class="box mt-2 text-center">
+                <b>หนังสือออก และ หนังสือตอบรับ</b>
+                <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar bg-success" style="width: 25%">ยื่นคำร้อง</div>
+                </div>
+            </div>
+            <!-- progress3 -->
+            <div class="box mt-2 text-center">
+                <b>แผนที่สถานประกอบการและสัญญาค้ำประกัน</b>
+                <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar bg-success" style="width: 25%">ยื่นคำร้อง</div>
+                </div>
+            </div>
+        </div>
