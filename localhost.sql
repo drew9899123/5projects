@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.9.7
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 14, 2023 at 08:45 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 7.4.29
+-- Generation Time: 19 ก.ค. 2023 เมื่อ 06:45 PM
+-- เวอร์ชันของเซิร์ฟเวอร์: 10.4.17-MariaDB
+-- PHP Version: 5.6.40
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,13 +19,40 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `internship_5project`
+-- Database: `planetco_it65-1`
 --
+CREATE DATABASE IF NOT EXISTS `planetco_it65-1` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `planetco_it65-1`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `app_system`
+-- โครงสร้างตาราง `admin`
+--
+
+CREATE TABLE `admin` (
+  `admin_id` int(11) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(12) NOT NULL,
+  `rank` varchar(20) NOT NULL,
+  `status` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- dump ตาราง `admin`
+--
+
+INSERT INTO `admin` (`admin_id`, `fullname`, `username`, `password`, `rank`, `status`) VALUES
+(1, 'admin admin', 'admin', 'admin', 'ผู้ดูแลระบบระดับสูง', 'approved'),
+(3, 'phanlop', 'พัลลภ บุญเหลือ', '1234', 'ผู้ดูแลระบบทั่วไป', 'approved'),
+(4, 'ธีรภัทร เพ็ชรจินดา', 'drew98992007', '123456789', 'ผู้ดูแลระบบทั่วไป', 'approved'),
+(5, 'drew1111', 'drew111', 'drew111', 'ผู้ดูแลระบบทั่วไป', 'waiting');
+
+-- --------------------------------------------------------
+
+--
+-- โครงสร้างตาราง `app_system`
 --
 
 CREATE TABLE `app_system` (
@@ -34,7 +62,7 @@ CREATE TABLE `app_system` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `app_system`
+-- dump ตาราง `app_system`
 --
 
 INSERT INTO `app_system` (`system_id`, `system_name`, `activation`) VALUES
@@ -44,7 +72,7 @@ INSERT INTO `app_system` (`system_id`, `system_name`, `activation`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `department`
+-- โครงสร้างตาราง `department`
 --
 
 CREATE TABLE `department` (
@@ -54,7 +82,7 @@ CREATE TABLE `department` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `department`
+-- dump ตาราง `department`
 --
 
 INSERT INTO `department` (`dept_id`, `dept_name`, `teacher_id`) VALUES
@@ -95,7 +123,7 @@ INSERT INTO `department` (`dept_id`, `dept_name`, `teacher_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `district`
+-- โครงสร้างตาราง `district`
 --
 
 CREATE TABLE `district` (
@@ -106,7 +134,7 @@ CREATE TABLE `district` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `district`
+-- dump ตาราง `district`
 --
 
 INSERT INTO `district` (`dis_id`, `name_th`, `name_en`, `pro_id`) VALUES
@@ -1043,7 +1071,7 @@ INSERT INTO `district` (`dis_id`, `name_th`, `name_en`, `pro_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `est`
+-- โครงสร้างตาราง `est`
 --
 
 CREATE TABLE `est` (
@@ -1065,17 +1093,26 @@ CREATE TABLE `est` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `est`
+-- dump ตาราง `est`
 --
 
 INSERT INTO `est` (`est_id`, `est_name`, `salute_person`, `coord_name`, `coord_tel`, `address_no`, `address_moo`, `address_road`, `subd_id`, `latitude`, `longitude`, `tel`, `fax`, `email`, `map_img`) VALUES
 (1, 'ประดับยนต์ออโต้', NULL, 'นายประพันธ์ ใจดี', '089-8881214', '1174', '2', 'สุขุมวิท', '200902', NULL, NULL, '0991325109', '-', 'nattakhon95@gmail.com', NULL),
-(2, 'มั่วมั่ว', NULL, 'นครินทร์ คุนญามี (น็อต) ', '089-8881214', '127/30', '1234', 'สุขุมวิท', '210403', NULL, NULL, '0991325109', '-', 'nattakhon95@gmail.com', NULL);
+(2, 'มั่วมั่ว', NULL, 'นครินทร์ คุนญามี (น็อต) ', '089-8881214', '127/30', '1234', 'สุขุมวิท', '210403', NULL, NULL, '0991325109', '-', 'nattakhon95@gmail.com', NULL),
+(3, 'Harbor Office', NULL, 'Nattakhon', '0888888888', '1111', '1', 'ขนมอร่อย', '200704', NULL, NULL, '0889999999', '1112565546', 'harboroffice@tatc.ac.th', NULL),
+(4, 'Harbor Office', NULL, 'Nattakhon', '0888888888', '1111', '1', 'ขนมอร่อย', '200704', NULL, NULL, '0889999999', '1112565546', 'harboroffice@tatc.ac.th', NULL),
+(5, 'บริษัท จีเอเบิล จำกัด (มหาชน)', NULL, 'adsad', '0657194163', '321', '123', 'd', '250601', NULL, NULL, '0948859242', 'dsadsa', 'suphot@usa.com', NULL),
+(6, 'บริษัท จีเอเบิล จำกัด (มหาชน)', NULL, 'adsad', '0657194163', '321', '123', 'd', '100202', NULL, NULL, '0948859242', 'dsadsa', 'suphot@usa.com', NULL),
+(7, 'จอยโต้โอมากาเสะ', NULL, 'นายสวัส ดีครับ', '0647827174', '12', '3', 'สุขุมวิท', '200902', NULL, NULL, '0647827174', '0376347890', 'sawaddeeja@gmail.com', NULL),
+(8, 'บริษัท จีเอเบิล จำกัด (มหาชน)xxxxx', NULL, 'นครินทร์ คุนญามี (น๊อต)', '0657194163', 'dsadsad', '123', 'นนทรี', '260109', NULL, NULL, '0948859242', '1', 'suphot@usa.com', NULL),
+(9, 'บริษัท จีเอเบิล จำกัด (มหาชน)', NULL, 'นครินทร์ คุนญามี (น๊อต)', '0657194163', '1111111111', '1111111111', 'นนทรี', '250705', NULL, NULL, '0948859242', '-', 'mrmanthegreatest1234@gmail.com', NULL),
+(10, 'บริษัท จีเอเบิล จำกัด (มหาชน)', NULL, 'นครินทร์ คุนญามี (น๊อต)', '0657194163', '1111111111', '1111111111', 'นนทรี', '220106', NULL, NULL, '0948859242', '-', 'mrmanthegreatest1234@gmail.com', NULL),
+(11, 'บริษัท จีเอเบิล จำกัด (มหาชน)', NULL, 'นครินทร์ คุนญามี (น๊อต)', '0657194163', '127/30', '-', '1', '110102', NULL, NULL, '0948859242', '-', '65309010009@tatc.ac.th', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `geographies`
+-- โครงสร้างตาราง `geographies`
 --
 
 CREATE TABLE `geographies` (
@@ -1084,7 +1121,7 @@ CREATE TABLE `geographies` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='InnoDB free: 8192 kB';
 
 --
--- Dumping data for table `geographies`
+-- dump ตาราง `geographies`
 --
 
 INSERT INTO `geographies` (`id`, `name`) VALUES
@@ -1098,7 +1135,7 @@ INSERT INTO `geographies` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `patien_status`
+-- โครงสร้างตาราง `patien_status`
 --
 
 CREATE TABLE `patien_status` (
@@ -1107,7 +1144,7 @@ CREATE TABLE `patien_status` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `patien_status`
+-- dump ตาราง `patien_status`
 --
 
 INSERT INTO `patien_status` (`pat_id`, `pat_name`) VALUES
@@ -1119,7 +1156,7 @@ INSERT INTO `patien_status` (`pat_id`, `pat_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `progression`
+-- โครงสร้างตาราง `progression`
 --
 
 CREATE TABLE `progression` (
@@ -1129,7 +1166,7 @@ CREATE TABLE `progression` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `progression`
+-- dump ตาราง `progression`
 --
 
 INSERT INTO `progression` (`progression_id`, `progression_name`, `color`) VALUES
@@ -1147,7 +1184,7 @@ INSERT INTO `progression` (`progression_id`, `progression_name`, `color`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `provinces`
+-- โครงสร้างตาราง `provinces`
 --
 
 CREATE TABLE `provinces` (
@@ -1159,7 +1196,7 @@ CREATE TABLE `provinces` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `provinces`
+-- dump ตาราง `provinces`
 --
 
 INSERT INTO `provinces` (`pro_id`, `name_th`, `name_th_short`, `name_en`, `geography_id`) VALUES
@@ -1244,7 +1281,7 @@ INSERT INTO `provinces` (`pro_id`, `name_th`, `name_th_short`, `name_en`, `geogr
 -- --------------------------------------------------------
 
 --
--- Table structure for table `requesting`
+-- โครงสร้างตาราง `requesting`
 --
 
 CREATE TABLE `requesting` (
@@ -1258,17 +1295,26 @@ CREATE TABLE `requesting` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `requesting`
+-- dump ตาราง `requesting`
 --
 
 INSERT INTO `requesting` (`request_id`, `request_date`, `std_id`, `est_id`, `schedule_id`, `start_date_custom`, `finish_date_custom`) VALUES
 (1, '2023-07-11', '65309010015', 1, 1, NULL, NULL),
-(12, '2023-07-14', '65309010001', 2, 1, NULL, NULL);
+(12, '2023-07-14', '65309010001', 2, 1, NULL, NULL),
+(13, '2023-07-14', '65309010004', 3, 1, NULL, NULL),
+(14, '2023-07-14', '65309010004', 4, 1, NULL, NULL),
+(15, '2023-07-14', '65309010009', 5, 1, NULL, NULL),
+(16, '2023-07-14', '65309010009', 6, 1, NULL, NULL),
+(17, '2023-07-15', '65302010013', 7, 1, NULL, NULL),
+(18, '2023-07-16', '65309010009', 8, 1, NULL, NULL),
+(19, '2023-07-16', '65309010009', 9, 1, NULL, NULL),
+(20, '2023-07-16', '65309010009', 10, 1, NULL, NULL),
+(21, '2023-07-17', '65309010009', 11, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `schedule`
+-- โครงสร้างตาราง `schedule`
 --
 
 CREATE TABLE `schedule` (
@@ -1280,7 +1326,7 @@ CREATE TABLE `schedule` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `schedule`
+-- dump ตาราง `schedule`
 --
 
 INSERT INTO `schedule` (`schedule_id`, `term_year`, `start_date`, `finish_date`, `doc_return_date`) VALUES
@@ -1289,7 +1335,7 @@ INSERT INTO `schedule` (`schedule_id`, `term_year`, `start_date`, `finish_date`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `student`
+-- โครงสร้างตาราง `student`
 --
 
 CREATE TABLE `student` (
@@ -1309,7 +1355,7 @@ CREATE TABLE `student` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `student`
+-- dump ตาราง `student`
 --
 
 INSERT INTO `student` (`std_id`, `password`, `prefix`, `name`, `surname`, `level`, `field_id`, `group_id`, `system`, `tel`, `vac_id`, `pat_id`, `progression_id`) VALUES
@@ -3882,7 +3928,7 @@ INSERT INTO `student` (`std_id`, `password`, `prefix`, `name`, `surname`, `level
 ('65302010010', '23/06/2546', 'นาย', 'ณัชพล', 'อ่อนสุวรรณ', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1081, '653020101', 'ปกติ', '0971820628', NULL, NULL, 2),
 ('65302010011', '10/11/2546', 'นางสาว', 'ณัฐยา', 'มาสพเหมาะ', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1081, '653020101', 'ปกติ', '0880609223', NULL, NULL, 2),
 ('65302010012', '14/08/2545', 'นาย', 'ณัฐวุฒิ', 'เฟื่องฟู', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1081, '653020101', 'ปกติ', '0855691972', NULL, NULL, 2),
-('65302010013', '22/03/2547', 'นางสาว', 'ธนาภา', 'นักเคน', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1081, '653020101', 'ปกติ', '0647827174', NULL, NULL, 2),
+('65302010013', '22/03/2547', 'นางสาว', 'ธนาภา', 'นักเคน', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1081, '653020101', 'ปกติ', '0647827174', NULL, NULL, 5),
 ('65302010014', '6/1/2546', 'นางสาว', 'ธารทิพย์', 'เฉยกลาง', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1081, '653020101', 'ปกติ', '0830421788', NULL, NULL, 2),
 ('65302010015', '23/07/2546', 'นางสาว', 'ธิดารัตน์', 'วงศ์เมือง', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1081, '653020101', 'ปกติ', '0631641066', NULL, NULL, 2),
 ('65302010016', '2/6/2546', 'นางสาว', 'นงลักษณ์', 'จันทสิทธิ์', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1081, '653020101', 'ปกติ', '0955576896', NULL, NULL, 2),
@@ -4071,20 +4117,20 @@ INSERT INTO `student` (`std_id`, `password`, `prefix`, `name`, `surname`, `level
 ('65307020014', '10/3/2547', 'นางสาว', 'ลัลนา', 'อยู่จินดา', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1080, '653070201', 'ปกติ', '0927473126', NULL, NULL, 2),
 ('65307020015', '11/4/2547', 'นางสาว', 'วรณัน', 'โสธรพรสวรรค์', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1080, '653070202', 'ปกติ', '0620015034', NULL, NULL, 2),
 ('65307020016', '17/12/2546', 'นาย', 'วัทรพล', 'ม่วงสังข์', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1080, '653070202', 'ปกติ', '0928282199', NULL, NULL, 2),
-('65309010001', '3/6/2547', 'นาย', 'กรณ์', 'บุหรั่นฉาย', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1091, '653090101', 'ปกติ', '0612238756', NULL, NULL, 3),
+('65309010001', '3/6/2547', 'นาย', 'กรณ์', 'บุหรั่นฉาย', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1091, '653090101', 'ปกติ', '0612238756', NULL, NULL, 6),
 ('65309010002', '6/8/2544', 'นางสาว', 'เขมิกา', 'ตู้ทองคำ', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1091, '653090101', 'ปกติ', '0611939914', NULL, NULL, 2),
 ('65309010003', '13/06/2547', 'นางสาว', 'จตุพร', 'ฉายประเสริฐศรี', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1091, '653090101', 'ปกติ', '0866243347', NULL, NULL, 2),
-('65309010004', '9/5/2547', 'นาย', 'ณัฏฐากร', 'เกษประดิษฐ', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1091, '653090101', 'ปกติ', '0894304218', NULL, NULL, 2),
+('65309010004', '9/5/2547', 'นาย', 'ณัฏฐากร', 'เกษประดิษฐ', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1091, '653090101', 'ปกติ', '0894304218', NULL, NULL, 6),
 ('65309010005', '23/05/2547', 'นาย', 'ณัฐพัชร', 'ศรีพรหม', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1091, '653090101', 'ปกติ', '0863414977', NULL, NULL, 2),
 ('65309010006', '1/11/2545', 'นาย', 'ณัฐภูมิ', 'โสมสุข', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1091, '653090101', 'ปกติ', '0635303900', NULL, NULL, 2),
 ('65309010007', '28/06/2546', 'นาย', 'ธนกร', 'พิชัย', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1091, '653090101', 'ปกติ', '0969483623', NULL, NULL, 2),
 ('65309010008', '3/2/2546', 'นาย', 'ธนะกฤษฏิ์', 'ศรีธนัตถ์ธนากูล', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1091, '653090101', 'ปกติ', '0885635414', NULL, NULL, 2),
-('65309010009', '23/09/2546', 'นาย', 'ธีรภัทร', 'เพ็ชรจินดา', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1091, '653090101', 'ปกติ', '0948859242', NULL, NULL, 2),
+('65309010009', '23/09/2546', 'นาย', 'ธีรภัทร', 'เพ็ชรจินดา', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1091, '653090101', 'ปกติ', '0948859242', NULL, NULL, 11),
 ('65309010010', '16/07/2545', 'นาย', 'นวพล', 'วงษ์โสภา', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1091, '653090101', 'ปกติ', '0642431524', NULL, NULL, 2),
 ('65309010011', '7/1/2547', 'นาย', 'นันทวัฒน์', 'ศรีวิเชียร', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1091, '653090101', 'ปกติ', '0994125839', NULL, NULL, 2),
 ('65309010012', '9/11/2546', 'นาย', 'นันธภัทร', 'กุมพันธ์', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1091, '653090101', 'ปกติ', '0634654504', NULL, NULL, 2),
 ('65309010014', '6/10/2546', 'นางสาว', 'ปัณณพร', 'ศรีพรมทา', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1091, '653090101', 'ปกติ', '0656524212', NULL, NULL, 2),
-('65309010015', '28/05/2546', 'นาย', 'พัลลภ', 'บุญเหลือ', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1091, '653090101', 'ปกติ', '0990150026', NULL, NULL, 5),
+('65309010015', '28/05/2546', 'นาย', 'พัลลภ', 'บุญเหลือ', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1091, '653090101', 'ปกติ', '0990150026', NULL, NULL, 11),
 ('65309010017', '29/11/2546', 'นาย', 'ภูรินทร์', 'ทัศคร', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1091, '653090101', 'ปกติ', '0942041773', NULL, NULL, 2),
 ('65309010018', '6/5/2546', 'นางสาว', 'รวิสรา', 'แสงใส', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1091, '653090101', 'ปกติ', '0863474904', NULL, NULL, 2),
 ('65309010019', '28/04/2546', 'นางสาว', 'วิไลพร', 'โพธิรุกขา', 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ชั้นปีที่ 2', 1091, '653090101', 'ปกติ', '0842164671', NULL, NULL, 2),
@@ -5166,7 +5212,7 @@ INSERT INTO `student` (`std_id`, `password`, `prefix`, `name`, `surname`, `level
 -- --------------------------------------------------------
 
 --
--- Table structure for table `studyfield`
+-- โครงสร้างตาราง `studyfield`
 --
 
 CREATE TABLE `studyfield` (
@@ -5176,7 +5222,7 @@ CREATE TABLE `studyfield` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `studyfield`
+-- dump ตาราง `studyfield`
 --
 
 INSERT INTO `studyfield` (`field_id`, `field_name`, `dept_id`) VALUES
@@ -5228,7 +5274,7 @@ INSERT INTO `studyfield` (`field_id`, `field_name`, `dept_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `study_group`
+-- โครงสร้างตาราง `study_group`
 --
 
 CREATE TABLE `study_group` (
@@ -5238,7 +5284,7 @@ CREATE TABLE `study_group` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `study_group`
+-- dump ตาราง `study_group`
 --
 
 INSERT INTO `study_group` (`group_id`, `group_name`, `teacher_id`) VALUES
@@ -5631,7 +5677,7 @@ INSERT INTO `study_group` (`group_id`, `group_name`, `teacher_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `subdistrict`
+-- โครงสร้างตาราง `subdistrict`
 --
 
 CREATE TABLE `subdistrict` (
@@ -5643,7 +5689,7 @@ CREATE TABLE `subdistrict` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='InnoDB free: 8192 kB';
 
 --
--- Dumping data for table `subdistrict`
+-- dump ตาราง `subdistrict`
 --
 
 INSERT INTO `subdistrict` (`subd_id`, `zip_code`, `name_th`, `name_en`, `dis_id`) VALUES
@@ -13109,7 +13155,7 @@ INSERT INTO `subdistrict` (`subd_id`, `zip_code`, `name_th`, `name_en`, `dis_id`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `supervision`
+-- โครงสร้างตาราง `supervision`
 --
 
 CREATE TABLE `supervision` (
@@ -13118,7 +13164,7 @@ CREATE TABLE `supervision` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `supervision`
+-- dump ตาราง `supervision`
 --
 
 INSERT INTO `supervision` (`dept_id`, `teacher_id`) VALUES
@@ -13159,7 +13205,7 @@ INSERT INTO `supervision` (`dept_id`, `teacher_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `teacher`
+-- โครงสร้างตาราง `teacher`
 --
 
 CREATE TABLE `teacher` (
@@ -13169,7 +13215,7 @@ CREATE TABLE `teacher` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `teacher`
+-- dump ตาราง `teacher`
 --
 
 INSERT INTO `teacher` (`teacher_id`, `name`, `surname`) VALUES
@@ -13424,7 +13470,7 @@ INSERT INTO `teacher` (`teacher_id`, `name`, `surname`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `vacinated_status`
+-- โครงสร้างตาราง `vacinated_status`
 --
 
 CREATE TABLE `vacinated_status` (
@@ -13433,7 +13479,7 @@ CREATE TABLE `vacinated_status` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `vacinated_status`
+-- dump ตาราง `vacinated_status`
 --
 
 INSERT INTO `vacinated_status` (`vac_id`, `vac_name`) VALUES
@@ -13445,6 +13491,12 @@ INSERT INTO `vacinated_status` (`vac_id`, `vac_name`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`admin_id`);
 
 --
 -- Indexes for table `app_system`
@@ -13566,6 +13618,12 @@ ALTER TABLE `vacinated_status`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `app_system`
 --
 ALTER TABLE `app_system`
@@ -13581,7 +13639,7 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `est`
 --
 ALTER TABLE `est`
-  MODIFY `est_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `est_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `geographies`
@@ -13605,7 +13663,7 @@ ALTER TABLE `progression`
 -- AUTO_INCREMENT for table `requesting`
 --
 ALTER TABLE `requesting`
-  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `schedule`

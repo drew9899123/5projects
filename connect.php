@@ -1,7 +1,7 @@
 <?php
     $host = 'localhost';
-    $user = 'planetco_it65-1';
-    $pass = 'it65-1';
+    $user = 'root';
+    $pass = '';
     $dbname = 'planetco_it65-1';
 
     $con = mysqli_connect($host, $user, $pass, $dbname) or die ('Connection Error');
