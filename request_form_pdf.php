@@ -698,7 +698,7 @@ $std_year = $matches[1];
                 newTab.document.write('<iframe src="' + pdfDataUri + '" width="100%" height="100%"></iframe>');
                 newTab.document.close();
 
-                window.location.href = 'std_profile.php';
+                window.location.href = 'index.php';
             });
 
         }

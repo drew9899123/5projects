@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
         if ($psw != $psw_cf) {
             echo "<script>alert('โปรดยืนยันรหัสผ่านให้ถูกต้อง')</script>";
         } else {
-            $sql_insert = "INSERT INTO admin VALUES (null,'$username','$fullname','$psw','ผู้ดูแลระบบทั่วไป','waiting')";
+            $sql_insert = "INSERT INTO admin VALUES (null,'$fullname','$username','$psw','ผู้ดูแลระบบทั่วไป','waiting')";
             $result_insert = $con->query($sql_insert);
             if (!$result_insert) {
                 echo "<script>alert('เกิดปัญหาในการสมัคร')</script>";
@@ -38,6 +38,7 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="icon" type="image/png" href="../img/veclogo.png"/>
     <title>สมัครเป็นเจ้าหน้าที่ดูแลระบบ</title>
 </head>
 

@@ -16,6 +16,7 @@
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="addRecord">
             เพิ่มรายการ
         </button>
+        <a class="btn btn-primary" href="../export.php">ส่งออกไฟล์ .csv</a>
     </div>
     <div class="col-sm">
         <div class="search">
